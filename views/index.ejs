@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
@@ -18,10 +18,20 @@
         </nav>
     </header>
     <main>
-        <section class="hero">
-            <h2>Welcome to the Community Event Calendar!</h2>
-            <p>Discover local events and activities happening in your community.</p>
-        </section>
+        <div class="jumbotron text-center">
+            <h2>Find and share local events happening in your community.</h2>
+        </div>
+        <div class="events">
+            <% events.forEach(event => { %>
+                <div class="event">
+                    <h3><%= event.name %></h3>
+                    <p><%= event.date %> at <%= event.time %></p>
+                    <p><%= event.location %></p>
+                    <p><%= event.description %></p>
+                    <a href="/events/<%= event.id %>">View Details</a>
+                </div>
+            <% }) %>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Community Event Calendar. All rights reserved.</p>

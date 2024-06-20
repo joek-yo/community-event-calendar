@@ -14,18 +14,30 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/submit">Submit Event</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Login</h2>
-        <form action="/login" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2>Login</h2>
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                    <p>Don't have an account? <a href="/register">Register</a></p>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Community Event Calendar. All rights reserved.</p>

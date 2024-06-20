@@ -1,62 +1,118 @@
 body {
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    text-align: center;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  main {
-    margin: 20px;
-  }
-  
-  .event-details {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 10px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form label {
-    margin-top: 10px;
-  }
-  
-  form input, form textarea, form button {
-    margin-top: 5px;
-  }
-  
-  form button {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #45a049;
-  }
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #007bff; /* Blue color */
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #0056b3; /* Complimentary color */
+}
+
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.jumbotron {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.event {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.event h3 {
+  margin-top: 0;
+}
+
+.event a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.event a:hover {
+  background-color: #0056b3; /* Complimentary color */
+}
+
+form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input, form textarea, form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+form button:hover {
+  background-color: #0056b3; /* Complimentary color */
+}
+
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
