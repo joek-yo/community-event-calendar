@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Community Event Calendar</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/submit">Submit Event</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Edit Event</h2>
+        <form action="/events/<%= event.id %>/edit" method="POST">
+            <label for="name">Event Name:</label>
+            <input type="text" id="name" name="name" value="<%= event.name %>" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="<%= event.date %>" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" value="<%= event.time %>" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="<%= event.location %>" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= event.description %></textarea>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Community Event Calendar. All rights reserved.</p>
+    </footer>
+</body>
+</html>
