@@ -1,3 +1,5 @@
+/* Existing styles */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -6,15 +8,16 @@ body {
 }
 
 header {
-  background-color: #007bff; /* Blue color */
-  color: #fff;
-  padding: 20px 0;
+  background-position: center;
+  padding: 40px 0;
   text-align: center;
 }
 
 header h1 {
   margin: 0;
   font-size: 2em;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
 }
 
 nav ul {
@@ -22,7 +25,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #007bff; /* Blue color */
+  background-color: #007bff;
   text-align: center;
 }
 
@@ -34,85 +37,211 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
 }
 
 nav ul li a:hover {
-  background-color: #0056b3; /* Complimentary color */
+  background-color: #0056b3;
+  border-radius: 5px;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 800px;
   margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.jumbotron {
-  background-color: #f9f9f9;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.event {
-  margin-bottom: 20px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.event h3 {
-  margin-top: 0;
-}
-
-.event a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue color */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.event a:hover {
-  background-color: #0056b3; /* Complimentary color */
+h2 {
+  text-align: center;
+  color: #333;
 }
 
 form {
-  display: grid;
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-form label {
-  margin-top: 10px;
+.form-group {
+  margin-bottom: 15px;
 }
 
-form input, form textarea, form button {
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
   padding: 10px;
+  font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-form button {
-  background-color: #007bff; /* Blue color */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
   color: #fff;
-  cursor: pointer;
+  background-color: #007bff;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-form button:hover {
-  background-color: #0056b3; /* Complimentary color */
+button:hover {
+  background-color: #0056b3;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px 100px; /* Add padding to the bottom */
+}
+
+/* Event List and Details Styling */
+.event-list, .event-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.event {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.event p {
+  color: #666;
+}
+
+.event a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.event a:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .event-list, .event-details {
+    grid-template-columns: 1fr;
+  }
 }
 
 footer {
   text-align: center;
   padding: 10px 0;
-  background-color: #333;
-  color: #fff;
+  background-color: skyblue;
+  color: black;
+  font-weight: bold;
   position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Additional button styles */
+
+.event a, .event form button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.event a {
+  background-color: #007bff;
+}
+
+.event a:hover {
+  background-color: #0056b3;
+}
+
+.event form button {
+  background-color: #dc3545;
+}
+
+.event form button:hover {
+  background-color: #c82333;
+}
+
+/* Existing styles remain unchanged */
+
+.event-buttons {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.event-buttons a,
+.event-buttons form button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.event-buttons a {
+  background-color: #007bff;
+}
+
+.event-buttons a:hover {
+  background-color: #0056b3;
+}
+
+.event-buttons form button {
+  background-color: #dc3545;
+}
+
+.event-buttons form button:hover {
+  background-color: #c82333;
 }

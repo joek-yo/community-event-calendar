@@ -1,9 +1,9 @@
+// middlewares/auth.js
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/login');
+  if (req.isAuthenticated && req.isAuthenticated()) {
+    return next();
   }
-  
-  module.exports = { isLoggedIn };
-  
+  res.redirect('/login');
+}
+
+module.exports = { isLoggedIn };

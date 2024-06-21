@@ -1,10 +1,11 @@
+<!-- views/submit.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Event</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
@@ -19,29 +20,34 @@
             </ul>
         </nav>
     </header>
-
     <main>
-        <h2>Submit a New Event</h2>
-        <form action="/events/submit" method="POST">
-            <label for="name">Event Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required>
-
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
-
-            <button type="submit">Submit Event</button>
-        </form>
+        <div class="container">
+            <h2>Submit Event</h2>
+            <form action="/submit" method="POST">
+                <div class="form-group">
+                    <label for="name">Event Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Event</button>
+            </form>
+        </div>
     </main>
-
     <footer>
         <p>&copy; 2024 Community Event Calendar. All rights reserved.</p>
     </footer>

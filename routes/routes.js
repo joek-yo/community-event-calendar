@@ -1,7 +1,10 @@
 const express = require('express');
+const passport = require('passport');
 const { isLoggedIn } = require('../middlewares/auth');
 const router = express.Router();
-const events = [
+
+// Mock events data
+let events = [
   { id: 1, name: 'Event 1', date: '2024-06-30', time: '10:00 AM', location: 'Location 1', description: 'Description 1' },
   { id: 2, name: 'Event 2', date: '2024-07-01', time: '11:00 AM', location: 'Location 2', description: 'Description 2' },
   { id: 3, name: 'Event 3', date: '2024-07-02', time: '12:00 PM', location: 'Location 3', description: 'Description 3' }
@@ -21,6 +24,7 @@ router.get('/register', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { title: 'Login' });
 });
+
 
 // GET /submit route
 router.get('/submit', async (req, res) => {
@@ -51,12 +55,12 @@ router.post('/submit', isLoggedIn, async (req, res) => {
 });
 
 // GET /events route
-router.get('/events', async (req, res) => {
+router.get('/events', (req, res) => {
   res.render('events', { title: 'Events', events });
 });
 
 // GET /events/:id route
-router.get('/events/:id', async (req, res) => {
+router.get('/events/:id', (req, res) => {
   const eventId = req.params.id;
   const event = events.find(event => event.id == eventId);
 
@@ -68,7 +72,7 @@ router.get('/events/:id', async (req, res) => {
 });
 
 // GET /events/:id/edit route
-router.get('/events/:id/edit', isLoggedIn, async (req, res) => {
+router.get('/events/:id/edit', isLoggedIn, (req, res) => {
   const eventId = req.params.id;
   const event = events.find(event => event.id == eventId);
 
@@ -80,7 +84,7 @@ router.get('/events/:id/edit', isLoggedIn, async (req, res) => {
 });
 
 // POST /events/:id/edit route
-router.post('/events/:id/edit', isLoggedIn, async (req, res) => {
+router.post('/events/:id/edit', isLoggedIn, (req, res) => {
   const eventId = req.params.id;
   const eventIndex = events.findIndex(event => event.id == eventId);
 
@@ -102,15 +106,28 @@ router.post('/events/:id/edit', isLoggedIn, async (req, res) => {
 });
 
 // POST /events/:id/delete route
-router.post('/events/:id/delete', isLoggedIn, async (req, res) => {
+router.post('/events/:id/delete', isLoggedIn, (req, res) => {
   const eventId = req.params.id;
   events = events.filter(event => event.id != eventId);
   res.redirect('/events');
 });
 
-// GET /submit route
-router.get('/submit', isLoggedIn, async (req, res) => {
-  res.render('submit', { title: 'Submit Event' });
+// POST /register route
+router.post('/register', (req, res) => {
+  const { username, password, confirmPassword } = req.body;
+
+  // Check if passwords match
+  if (password !== confirmPassword) {
+    return res.status(400).send('Passwords do not match');
+  }
+
+  // Log the registration details
+  console.log(`User registered: Username - ${username}, Password - ${password}`);
+
+  // Continue with registration process
+  // You can add your registration logic here
+
+  res.redirect('/login');
 });
 
 module.exports = router;

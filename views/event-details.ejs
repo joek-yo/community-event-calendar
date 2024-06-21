@@ -14,20 +14,26 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/submit">Submit Event</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="event-details">
-            <h2><%= event.name %></h2>
-            <p><strong>Date:</strong> <%= event.date %></p>
-            <p><strong>Time:</strong> <%= event.time %></p>
-            <p><strong>Location:</strong> <%= event.location %></p>
-            <p><strong>Description:</strong> <%= event.description %></p>
-            <a href="/events/<%= event.id %>/edit">Edit</a>
-            <form action="/events/<%= event.id %>/delete" method="POST" style="display:inline;">
-                <button type="submit">Delete</button>
-            </form>
+        <div class="container">
+            <div class="event">
+                <h2><%= event.name %></h2>
+                <p><strong>Date:</strong> <%= new Date(event.date).toDateString() %></p>
+                <p><strong>Time:</strong> <%= event.time %></p>
+                <p><strong>Location:</strong> <%= event.location %></p>
+                <p><strong>Description:</strong> <%= event.description %></p>
+                <div class="event-buttons">
+                    <a href="/events/<%= event.id %>/edit">Edit</a>
+                    <form action="/events/<%= event.id %>/delete" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

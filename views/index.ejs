@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Community Event Calendar</h1>
+        <h1>Welcome to Our Website</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/submit">Submit Event</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="jumbotron text-center">
-            <h2>Find and share local events happening in your community.</h2>
-        </div>
-        <div class="events">
-            <% events.forEach(event => { %>
+        <div class="container">
+            <h2>Featured Events</h2>
+            <div class="event-list">
+                <% events.forEach(event => { %>
                 <div class="event">
-                    <h3><%= event.name %></h3>
-                    <p><%= event.date %> at <%= event.time %></p>
-                    <p><%= event.location %></p>
-                    <p><%= event.description %></p>
+                    <h2><%= event.name %></h2>
+                    <p><strong>Date:</strong> <%= new Date(event.date).toDateString() %></p>
+                    <p><strong>Time:</strong> <%= event.time %></p>
+                    <p><strong>Location:</strong> <%= event.location %></p>
+                    <p><strong>Description:</strong> <%= event.description %></p>
                     <a href="/events/<%= event.id %>">View Details</a>
                 </div>
-            <% }) %>
+                <% }); %>
+            </div>
         </div>
     </main>
     <footer>
